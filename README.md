@@ -170,3 +170,14 @@ Now i'm going test my backend code using RESTfull API. i'll be making use of som
 i'll be doing both POST request annd GET resquest and the image below shows the result of my testing:
 
 
+
+![Screenshot 2023-07-22 060230](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/001a4db1-6c2a-4d8c-9507-b4a377944b5f)
+
+
+
+![Screenshot 2023-07-22 060351](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/7dc056f1-f972-4361-b45b-ace8843c0225)
+
+
+## STEP 2 – FRONTEND CREATION
+
+
