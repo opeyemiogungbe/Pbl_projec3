@@ -32,7 +32,7 @@ then i'm going to install both nodejs and npm. NPM is a package manager for Node
 
 After successful installation of the necessary packages, i'm going to create a Todo directory `mkdir Todo` and` ls` to connfirm and cd into our new Todo directory
 
-
+![Screenshot 2023-07-10 053113](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/5ed9a1fc-04e9-4b66-9391-505dd7f94b5f)
 
 Next, i will use the command `npm init` to initialise my new app, so that a new file named package.json will be created. The file will contain information about application and the dependencies that it needs to run.
 
