@@ -56,3 +56,8 @@ Next i'm going to open the index.js file, put in the code and set the port to ru
 Now i'll be checking if the configuration in the index.js works fine and run on port 5000:
 
 
+![Screenshot 2023-07-11 084945](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/f9ede8ab-7423-419a-bae6-c18126a903e8)
+
+Now we need to open port 5000 in EC2 Security Groups on my AWS open my browser and access the server’s Public IP or Public DNS name followed by port 5000:
+
+
