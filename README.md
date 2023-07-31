@@ -117,3 +117,50 @@ Now i'm going to update the file api.js in ‘routes’ directory to make use of
 ![Screenshot 2023-07-10 074815](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/20089fa4-c8a0-4e8a-8d9e-02dc8f7e9a3c)
 
 Next i'm going to create a mongodb database and connect it to my dotenv file in my Todo directory
+
+![Screenshot 2023-07-14 103609](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/95612bff-d3b4-4bfd-800b-8cea3fde03d9)
+
+Now i'm going to update the index.js to reflect the use of .env so that Node.js can connect to the database.
+
+```
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose');
+const routes = require('./routes/api');
+const path = require('path');
+require('dotenv').config();
+
+const app = express();
+
+const port = process.env.PORT || 5000;
+
+//connect to the database
+mongoose.connect(process.env.DB, { useNewUrlParser: true, useUnifiedTopology: true })
+.then(() => console.log(`Database connected successfully`))
+.catch(err => console.log(err));
+
+//since mongoose promise is depreciated, we overide it with node's promise
+mongoose.Promise = global.Promise;
+
+app.use((req, res, next) => {
+res.header("Access-Control-Allow-Origin", "\*");
+res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+next();
+});
+
+app.use(bodyParser.json());
+
+app.use('/api', routes);
+
+app.use((err, req, res, next) => {
+console.log(err);
+next();
+});
+
+app.listen(port, () => {
+console.log(`Server running on port ${port}`)
+});
+```
+
+Now i'm going to test if my database connected succesfully by running the command `node index.js`
+
