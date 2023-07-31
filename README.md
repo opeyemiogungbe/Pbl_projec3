@@ -199,3 +199,10 @@ In my Todo folder i'll be editing the package.json file with the code below.
 },
 ```
 
+![Screenshot 2023-07-17 071115](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/a9000130-7ee8-436b-ae44-d0b94a593528)
+
+Next, i'll change directory to client `cd client` open the package.json file `vi package.json` and add the key value pair in the package.json file 
+
+`"proxy": "http://localhost:5000"`
+
+
