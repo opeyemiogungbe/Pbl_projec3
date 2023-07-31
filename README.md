@@ -164,3 +164,9 @@ console.log(`Server running on port ${port}`)
 
 Now i'm going to test if my database connected succesfully by running the command `node index.js`
 
+![Screenshot 2023-07-22 054313](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/9bb0427f-19ce-4eda-b766-c62bba07a172)
+
+Now i'm going test my backend code using RESTfull API. i'll be making use of some API development client to test my code, i'll be using Postman to test my API.
+i'll be doing both POST request annd GET resquest and the image below shows the result of my testing:
+
+
