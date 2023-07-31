@@ -36,3 +36,12 @@ After successful installation of the necessary packages, i'm going to create a T
 
 Next, i will use the command `npm init` to initialise my new app, so that a new file named package.json will be created. The file will contain information about application and the dependencies that it needs to run.
 
+![Screenshot 2023-07-10 060612](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/cb1840bb-04f5-4197-bb0c-b093f5542ad8)
+
+Next, i will Install ExpressJs and create the Routes directory running the following command:
+
+`npm install express` `mkdir Routes `
+
+i'll also be creating index.js file and install dotenv module in there with the command:
+
+`touch index.js` `npm install dotenv`
