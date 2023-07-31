@@ -206,3 +206,295 @@ Next, i'll change directory to client `cd client` open the package.json file `vi
 `"proxy": "http://localhost:5000"`
 
 
+Now i'm going to test our connection by running `npm run dev` from the Todo directory to see if the app will open and run on port 3000
+
+![Screenshot 2023-07-17 072514](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/82758d5a-6896-49df-a200-98a966b93001)
+
+from the image above we can see our app is open and run on port 3000 ( note we have to open TCP port 3000 in our Ec2 security group.
+
+### Creating React Components
+
+From my Todo directory, I'll `cd client` and `cd src` from src i'll be creating another folder called component and move into it: 
+`mkdir component && cd components` 
+
+Inside ‘components’ directory i'll create three files, Input.js, ListTodo.js and Todo.js with the command:
+
+`touch Input.js ListTodo.js Todo.js`
+
+i'll `vi Input.js` and impute the code below:
+
+```
+import React, { Component } from 'react';
+import axios from 'axios';
+
+class Input extends Component {
+
+state = {
+action: ""
+}
+
+addTodo = () => {
+const task = {action: this.state.action}
+
+    if(task.action && task.action.length > 0){
+      axios.post('/api/todos', task)
+        .then(res => {
+          if(res.data){
+            this.props.getTodos();
+            this.setState({action: ""})
+          }
+        })
+        .catch(err => console.log(err))
+    }else {
+      console.log('input field required')
+    }
+
+}
+
+handleChange = (e) => {
+this.setState({
+action: e.target.value
+})
+}
+
+render() {
+let { action } = this.state;
+return (
+<div>
+<input type="text" onChange={this.handleChange} value={action} />
+<button onClick={this.addTodo}>add todo</button>
+</div>
+)
+}
+}
+
+export default Input
+```
+
+Now I'll move into src folder `cd..` and also move into client folder `cd..` i'll install axios `npm install axios` 
+
+Now i'll go back into component directory `cd src/components` and open listTodo.js `vi listTodo.js` and put in thw following code:
+```
+import React from 'react';
+
+const ListTodo = ({ todos, deleteTodo }) => {
+
+return (
+<ul>
+{
+todos &&
+todos.length > 0 ?
+(
+todos.map(todo => {
+return (
+<li key={todo._id} onClick={() => deleteTodo(todo._id)}>{todo.action}</li>
+)
+})
+)
+:
+(
+<li>No todo(s) left</li>
+)
+}
+</ul>
+)
+}
+
+export default ListTodo
+```
+
+Then in my Todo.js file i'll put the following code:
+```
+import React, {Component} from 'react';
+import axios from 'axios';
+
+import Input from './Input';
+import ListTodo from './ListTodo';
+
+class Todo extends Component {
+
+state = {
+todos: []
+}
+
+componentDidMount(){
+this.getTodos();
+}
+
+getTodos = () => {
+axios.get('/api/todos')
+.then(res => {
+if(res.data){
+this.setState({
+todos: res.data
+})
+}
+})
+.catch(err => console.log(err))
+}
+
+deleteTodo = (id) => {
+
+    axios.delete(`/api/todos/${id}`)
+      .then(res => {
+        if(res.data){
+          this.getTodos()
+        }
+      })
+      .catch(err => console.log(err))
+
+}
+
+render() {
+let { todos } = this.state;
+
+    return(
+      <div>
+        <h1>My Todo(s)</h1>
+        <Input getTodos={this.getTodos}/>
+        <ListTodo todos={todos} deleteTodo={this.deleteTodo}/>
+      </div>
+    )
+
+}
+}
+
+export default Todo;
+```
+
+
+**Now i'll be making adjustment to the react code by deleting the logo and adjusting the App.js.**
+
+I'll cd into the src folder and `vi app.js` and put in the code below:
+```
+import React from 'react';
+
+import Todo from './components/Todo';
+import './App.css';
+
+const App = () => {
+return (
+<div className="App">
+<Todo />
+</div>
+);
+}
+
+export default App;
+```
+
+Also In the src directory i'll open the App.css `vi App.css` and paste the following code:
+```
+.App {
+text-align: center;
+font-size: calc(10px + 2vmin);
+width: 60%;
+margin-left: auto;
+margin-right: auto;
+}
+
+input {
+height: 40px;
+width: 50%;
+border: none;
+border-bottom: 2px #101113 solid;
+background: none;
+font-size: 1.5rem;
+color: #787a80;
+}
+
+input:focus {
+outline: none;
+}
+
+button {
+width: 25%;
+height: 45px;
+border: none;
+margin-left: 10px;
+font-size: 25px;
+background: #101113;
+border-radius: 5px;
+color: #787a80;
+cursor: pointer;
+}
+
+button:focus {
+outline: none;
+}
+
+ul {
+list-style: none;
+text-align: left;
+padding: 15px;
+background: #171a1f;
+border-radius: 5px;
+}
+
+li {
+padding: 15px;
+font-size: 1.5rem;
+margin-bottom: 15px;
+background: #282c34;
+border-radius: 5px;
+overflow-wrap: break-word;
+cursor: pointer;
+}
+
+@media only screen and (min-width: 300px) {
+.App {
+width: 80%;
+}
+
+input {
+width: 100%
+}
+
+button {
+width: 100%;
+margin-top: 15px;
+margin-left: 0;
+}
+}
+
+@media only screen and (min-width: 640px) {
+.App {
+width: 60%;
+}
+
+input {
+width: 50%;
+}
+
+button {
+width: 30%;
+margin-left: 10px;
+margin-top: 0;
+}
+}
+```
+Also In the src directory i'll open the index.css and put the following code:
+```
+body {
+margin: 0;
+padding: 0;
+font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+"Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+sans-serif;
+-webkit-font-smoothing: antialiased;
+-moz-osx-font-smoothing: grayscale;
+box-sizing: border-box;
+background-color: #282c34;
+color: #787a80;
+}
+
+code {
+font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+monospace;
+}
+```
+Now i'm going into Todo directory and test my frontend configuration by running the command
+
+`Npm run dev`
+
+if all the code saved successfully without errors my Todo app should be up and running on Tcp port 3000
