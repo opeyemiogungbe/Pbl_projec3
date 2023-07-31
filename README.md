@@ -47,3 +47,6 @@ i'll also be creating index.js file and install dotenv module in there with the 
 `touch index.js` `npm install dotenv`
 
 
+![Screenshot 2023-07-10 062326](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/f63e8e2a-2099-41a7-819e-8c3bcd3c49e6)
+
+Next i'm going to open the index.js file and put in the code below: 
