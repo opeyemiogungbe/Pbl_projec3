@@ -114,3 +114,6 @@ i'm going to vi into todo.js and put in the necessary code:
 
 Now i'm going to update the file api.js in ‘routes’ directory to make use of the new model. in Routes directory, i opened api.js, delete the code inside with :%d command and paste a new code into it then save and exit.
 
+![Screenshot 2023-07-10 074815](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/20089fa4-c8a0-4e8a-8d9e-02dc8f7e9a3c)
+
+Next i'm going to create a mongodb database and connect it to my dotenv file in my Todo directory
