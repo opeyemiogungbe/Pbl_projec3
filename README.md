@@ -49,4 +49,10 @@ i'll also be creating index.js file and install dotenv module in there with the 
 
 ![Screenshot 2023-07-10 062326](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/f63e8e2a-2099-41a7-819e-8c3bcd3c49e6)
 
-Next i'm going to open the index.js file and put in the code below: 
+Next i'm going to open the index.js file, put in the code and set the port to run on 5000: 
+
+![Screenshot 2023-07-10 062354](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/16071579-87be-43c6-9ce2-1d9c846a7336)
+
+Now i'll be checking if the configuration in the index.js works fine and run on port 5000:
+
+
