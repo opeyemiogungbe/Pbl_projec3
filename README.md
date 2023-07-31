@@ -81,7 +81,24 @@ i'll open api.js file with vim text editor and put in the necessary code:
 
 vim api.js
 
+```
+const express = require ('express');
+const router = express.Router();
 
+router.get('/todos', (req, res, next) => {
+
+});
+
+router.post('/todos', (req, res, next) => {
+
+});
+
+router.delete('/todos/:id', (req, res, next) => {
+
+})
+
+module.exports = router;
+```
 
 
 Next, from my Todo directory i'm going to install Mongoose which is a Node js package that makes working with mongodb easier. This will help me to create a database model to define the schema. I'll run the command `npm install mongoose`
@@ -90,4 +107,6 @@ Next, from my Todo directory i'm going to install Mongoose which is a Node js pa
 Next i'm ,going to create a model folder, cd into the new folder and create a file name todo.js running the command below
 
 `mkdir model && cd model && touch todo.js`
+
+i'm going to vi into todo.js and paste the necessary code: 
 
