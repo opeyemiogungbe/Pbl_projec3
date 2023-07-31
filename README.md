@@ -60,4 +60,24 @@ Now i'll be checking if the configuration in the index.js works fine and run on 
 
 Now we need to open port 5000 in EC2 Security Groups on my AWS open my browser and access the server’s Public IP or Public DNS name followed by port 5000:
 
+![Screenshot 2023-07-13 043726](https://github.com/opeyemiogungbe/Pbl_projec3/assets/136735745/ee5e3093-838e-447f-813b-a2951648e06d)
+
+
+### My To-Do application needs to be able to do 3 things:
+
+1. Create a new task
+2. Display list of all tasks
+3. Delete a completed task
+   
+Each task will be associated with some particular endpoint and will use different standard HTTP request methods: POST, GET, DELETE.
+
+For each task, i'll need to create routes that will define various endpoints that the To-do app will depend on.
+
+Next i'll be creating a route folder, cd into the folder and create a api.js file in that folder running the following commad:
+
+`mkdir route` `cd route` `touch api.js`
+
+i'll open api.js file with vim text editor and put in the necessary code:
+
+`vim api.js`
 
