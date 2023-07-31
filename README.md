@@ -180,4 +180,22 @@ i'll be doing both POST request annd GET resquest and the image below shows the 
 
 ## STEP 2 – FRONTEND CREATION
 
+In this step I'll create the user interface for the Web client (browser) to interact with the application via API. To start out with the frontend of the To-do app intalling react packages in the same root directory as your backend code, which is the Todo directory running the command.
+
+`npx create-react-app client` 
+
+This will create a new folder in my Todo directory called client, where i'll be adding all the react code. Now i'm going to installing nodemon and other necessary packages
+```
+npm install concurrently --save-dev
+
+npm install nodemon --save-dev
+```
+In my Todo folder i'll be editing the package.json file with the code below.
+```
+"scripts": {
+"start": "node index.js",
+"start-watch": "nodemon index.js",
+"dev": "concurrently \"npm run start-watch\" \"cd client && npm start\""
+},
+```
 
